@@ -10,6 +10,8 @@ export default function Register() {
     const email = useRef()
     const password = useRef()
     const password2 = useRef(undefined)
+    /* using for Ethereum Wallet */ 
+    const ethereum_wallet_address = useRef()
 
 
     async function onSubmitForm(event) {
@@ -19,7 +21,8 @@ export default function Register() {
             last_name: last_name.current.value,
             email: email.current.value,
             password: password.current.value,
-            password2: password2.current.value
+            password2: password2.current.value,
+            ethereum_wallet_address : ethereum_wallet_address.current.value
           };
 
         setLoading(true)
@@ -55,6 +58,15 @@ export default function Register() {
                 <div className="mb-3">
                     <input type="password" placeholder='Confirm Password' autoComplete='off' className='form-control' id="passwordConfirmation" ref={password2} />
                 </div>
+                
+                {/* Akash Homepage Add Code Here */}
+
+                <div className="mb-3">
+                    <input type="text" placeholder='Ethereum wallet address' autoComplete='off' className='form-control' id='ethereum_wallet_address' ref={ethereum_wallet_address} />
+                </div>
+                {/* End  */}
+
+
                 <div className="mb-3">
                     <button disabled={loading} className='btn btn-success' type="submit">Register</button>
                 </div>
